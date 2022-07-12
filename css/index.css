@@ -165,11 +165,17 @@ span{
     border-radius: 50%;
     width: 200px;
     margin-right: 100px;
+    transition: 0.5s ease-in-out;
+}
+
+.mainImage:hover{
+    transform: scale(1.1);
 }
 
 .flipImg{
     position: static;
-    animation: FlipImage 5s infinite;
+    animation: FlipImage 4s;
+    animation-timing-function: ease;
 }
 
 @keyframes FlipImage{
@@ -188,24 +194,90 @@ span{
     justify-content: space-evenly;
 }
 
+.bodyImage::after{
+    content: 'This is just a test.';
+    z-index: 300;
+}
+
 .bodyImage{
+    position: relative;
     width: 250px;
     margin: 15px;
-    border: 3px solid var(--heading-color-color);
+    border: 3px solid var(--main-color);
     border-radius: 1.5rem;
     transition: 0.5s ease-in-out;
     overflow: hidden;
+    object-fit: cover;
+    object-position: center;
 }
 
 .bodyImage:hover{
     transform: scale(1.1);
+    opacity: 0.3;
 }
 
-#about{
+/*! About */
+
+.about-logo{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 900;
+    overflow: hidden;
+}
+
+#about-info{
     margin-top: 20px;
     font-size: 18px;
     font-weight: 500;
-    text-align: justify;
+    text-align: center;
 }
 
+/* ! Services */
 
+.service-logo{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    overflow: hidden;
+}
+
+.service-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 400px;
+    margin: 0 auto ;
+    transition: 0.5s ease;
+    background: url('../img/service1.jpg') center no-repeat;
+    background-size: cover;
+    border: 1px solid var(--bg-color);
+    border-radius: 2rem;
+}
+
+.service-info h2{
+    text-transform: uppercase;
+    color: var(--bg-color);
+    font-size: 1rem;
+    font-weight: 800;
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.8s;
+}
+
+.service-info p{
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--main-color);
+}
+
+.service-info:hover{
+    box-shadow: 0 0 0 200px rgba(0, 0, 0, 0.9) inset;
+}
+
+.service-info:hover h2{
+    opacity: 1;
+    transform: scale(1);
+}
